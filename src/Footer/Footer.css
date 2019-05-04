@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+
+.page-footer {
+  background-color: rgb(224, 219, 219);
+  color: black;
+  text-align: center;
+  font-family:'Tangerine', serif;
+  font-size: 26px;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+}
