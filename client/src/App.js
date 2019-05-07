@@ -32,9 +32,6 @@ class App extends Component {
       <div>
         <Navbar fluid>
           <Navbar.Header>
-            <Navbar.Brand>
-              {/* <a href="#">Auth0 - React</a> */}
-            </Navbar.Brand>
             <Button
               bsStyle="primary"
               className="btn-margin"
@@ -67,11 +64,11 @@ class App extends Component {
               )
             }
 
-            <Link className="nav-links" to="/brews">Breweries</Link>
+            {/* <Link className="nav-links" to="/brews">Brew n Bark</Link> */}
 
-            <Link className="nav-links" to="/barks">Barks</Link>
+            {/* <Link className="nav-links" to="/barks">Barks</Link> */}
 
-            <Link className="nav-links-sign-up" to="/signup">Sign up</Link>
+            <Link className="nav-links-sign-up" to={{ pathname: "/signup" }}>Sign up</Link>
 
             <Link className="nav-title" to="#">Brews & Barks</Link>
           </Navbar.Header>

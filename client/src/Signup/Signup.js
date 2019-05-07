@@ -1,45 +1,35 @@
 import React, { Component } from 'react';
 import '../Signup/Signup.css';
+import API from '../Utils/API'
 
 class Signup extends Component {
 
     constructor(props) {
         super(props);
-        this.onChangeName = this.onChangeName.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
         this.state = {
             name: '',
             email: '',
             password: ''
         }
+        this.onChange = this.onChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChangeName(e) {
-        this.setState({
-            name: e.target.value
-        });
-    }
-    onChangeEmail(e) {
-        this.setState({
-            email: e.target.value
-        })
-    }
-    onChangePassword(e) {
-        this.setState({
-            password: e.target.value
-        })
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    onSubmit(e) {
+    handleSubmit(e) {
         e.preventDefault();
         console.log(`The values are ${this.state.name}, ${this.state.email}, and ${this.state.password}`)
-        this.setState({
-            name: '',
-            email: '',
-            password: ''
+
+        const user = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+        }
+        API.newUser(user).then(res => {
+            this.props.history.push(`/signup`)
         })
     }
 
@@ -51,34 +41,36 @@ class Signup extends Component {
                     <h4 className="form-signup-heading">Please sign up here</h4>
                     <input
                         type="text"
-                        // value={this.state.name}
                         className="form-control"
+                        name="name"
                         placeholder="Name"
+                        value={this.state.name}
+                        onChange={this.onChange}
                         required autoFocus
                     /><br></br>
 
                     <input
                         type="email"
-                        // value={this.state.email}
                         className="form-control"
+                        name="email"
                         placeholder="Email address"
+                        value={this.state.email}
+                        onChange={this.onChange}
                         required autoFocus
                     /><br></br>
 
                     <input
                         type="password"
-                        // value={this.state.password}
                         className="form-control"
+                        name="password"
                         placeholder="Password" required
+                        value={this.state.password}
+                        onChange={this.onChange}
                     /><br></br>
 
-                    <button className="btn btn-lg btn-primary submit-button" value="Submit User" type="button">Sign up</button>
+                    <button className="btn btn-lg btn-primary submit-button" value="Submit User" type="button" onClick={(e) => this.handleSubmit(e)}>Sign up</button>
                 </form>
-                {/* <div>
-              <Link to="/">{'Signin'}</Link>
-            </div> */}
             </div>
-
         )
     }
 }
