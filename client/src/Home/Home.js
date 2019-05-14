@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Home/Home.css'
+// import { Bnb } from "../Results/Bnb"
 
 class Home extends Component {
   login() {
@@ -12,16 +13,15 @@ class Home extends Component {
         {
           isAuthenticated() && (
             <h4>
-              You are logged in!
               </h4>
           )
         }
         {
           !isAuthenticated() && (
             <h4>
-              You are not logged in! Please{' '}
-              <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>Log In</a>
-              {' '}to continue.
+              {/* You are not logged in! Please{' '} */}
+              <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}></a>
+              {/* {' '}to continue. */}
               </h4>
           )
         }

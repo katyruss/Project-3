@@ -2,7 +2,6 @@
     "name": "centralized-login",
     "version": "0.2.0",
     "private": true,
-    "proxy": "http://localhost:3001/",
     "devDependencies": {
         "react-scripts": "^2.1.8"
     },
@@ -13,12 +12,14 @@
         "body-parser": "^1.19.0",
         "bootstrap": "^3.3.7",
         "express": "^4.16.4",
+        "mdbreact": "^4.13.0",
         "react": "^16.8.6",
         "react-bootstrap": "^0.31.2",
         "react-dom": "^16.8.6",
         "react-router": "^5.0.0",
         "react-router-dom": "^5.0.0"
     },
+    "proxy": "http://localhost:3001",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",

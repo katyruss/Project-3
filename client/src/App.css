@@ -5,35 +5,16 @@
   background-color:#5f533b66;
   color:white;
   font-family:Georgia, 'Times New Roman', Times, serif;
-  position: relative;
-  padding: 10px 24px;
   font-size: 18px;
   cursor: pointer;
   margin-right: 15px;
   text-align: center;
-  /* float:right; */
-}
-
-.nav-links{
-  text-align: center;
-  margin:25px;
-  font-family: 'Tangerine', serif;
-  font-size: 28px;
-  color:white;
-}
-
-.nav-links-sign-up{
-  text-align: center;
-  margin:25px;
-  font-family: 'Tangerine', serif;
-  font-size: 28px;
-  color:white;
-  font-weight: bolder;
+  float:right;
 }
 
 .nav-title{
-  /* text-align: right; */
-  margin: 25px 25px;
+  text-align: center;
+  margin: 25px;
   font-family: 'Tangerine', serif;
   font-size: 42px;
   color:white;

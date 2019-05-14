@@ -3,6 +3,8 @@ import { Navbar, Button, NavDropdown } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Footer from './Footer/Footer';
+import Search from './Search/Search';
+
 
 class App extends Component {
   goTo(route) {
@@ -32,48 +34,48 @@ class App extends Component {
       <div>
         <Navbar fluid>
           <Navbar.Header>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
+            <span>
+              <Button
+                bsStyle="primary"
+                className="btn-margin"
+                onClick={this.goTo.bind(this, 'signup')}
+              >
+                Sign up
             </Button>
-            {
-              !isAuthenticated() && (
-                <Button
-                  id="qsLoginBtn"
-                  bsStyle="primary"
-                  className="btn-margin"
-                  onClick={this.login.bind(this)}
-                >
-                  Log In
+              {
+                !isAuthenticated() && (
+                  <Button
+                    id="qsLoginBtn"
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
                   </Button>
-              )
-            }
-            {
-              isAuthenticated() && (
-                <Button
-                  id="qsLogoutBtn"
-                  bsStyle="primary"
-                  className="btn-margin"
-                  onClick={this.logout.bind(this)}
-                >
-                  Log Out
+                )
+              }
+              {
+                isAuthenticated() && (
+                  <Button
+                    id="qsLogoutBtn"
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
                   </Button>
-              )
-            }
+                )
+              }
 
-            {/* <Link className="nav-links" to="/brews">Brew n Bark</Link> */}
+              {/* <Link className="nav-links" to="/brews">Brew n Bark</Link> */}
 
-            {/* <Link className="nav-links" to="/barks">Barks</Link> */}
-
-            <Link className="nav-links-sign-up" to={{ pathname: "/signup" }}>Sign up</Link>
-
-            <Link className="nav-title" to="#">Brews & Barks</Link>
+              {/* <Link className="nav-links" to="/barks">Barks</Link> */}
+              <Link className="nav-title" to="#">Brews & Barks</Link>
+            </span>
           </Navbar.Header>
         </Navbar>
         <Footer />
+        <Search />
       </div >
     );
   }

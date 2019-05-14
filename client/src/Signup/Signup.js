@@ -28,7 +28,7 @@ class Signup extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        API.newUser(user).then(res => {
+       API.newUser(user).then(res => {
             this.props.history.push(`/signup`)
         })
     }
@@ -37,7 +37,7 @@ class Signup extends Component {
     render() {
         return (
             <div className="signup">
-                <form className="form-signup" onSubmit={this.onSubmit}>
+                <form method='POST' className="form-signup" onSubmit={this.onSubmit}>
                     <h4 className="form-signup-heading">Please sign up here</h4>
                     <input
                         type="text"
@@ -69,6 +69,7 @@ class Signup extends Component {
                     /><br></br>
 
                     <button className="btn btn-lg btn-primary submit-button" value="Submit User" type="button" onClick={(e) => this.handleSubmit(e)}>Sign up</button>
+               
                 </form>
             </div>
         )
