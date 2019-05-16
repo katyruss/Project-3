@@ -1,74 +1,85 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import ResultsCard from '../Card/BrewResultsCard'
+import './Search.css'
 import Bnb from '../Results/Bnb';
+
 
 // const { API_KEY } = process.env
 // const API_URL = 'TBD'
 
 class Search extends Component {
-  state = {
-    error: false,
-    query: '',
-    longitude: 43.0718,
-    latitude: 70.7626,
-    zip: '03801',
-
-    brewresults: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      results: false,
+      error: false,
+      zip: '',
+      brewresults: null
+    }
+    this.state.handleChange = this.handleChange.bind(this)
+    // this.state.handleClick = this.handleClick.bind(this)
   }
-
   search = () => {
-    axios.post("/api/seach", {
-      params: {
-        zip: this.state.zip
-      }
+    axios.post("/api/search", {
+      zip: this.state.zip
     }).then(res => {
-      console.log(res.data)
-      if (res.data.success) {
-        this.setState({ brewresults: res.data.data });
-      }
+      this.setState({
+        brewresults: res.data,
+        results: true
+      }, () => {
+        console.log(this.state.brewresults);
+      });
+      // console.log(res.data.results)
+      // }
     });
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.zip]: e.target.value });
+    this.setState({
+      zip: e.target.value
+    }, () => {
+
+      if (this.state.zip.length === 5) {
+        this.search()
+      }
+      else {
+        this.setState({
+          brewresults: null
+        })
+
+      }
+    })
   }
 
-  onSubmit=(e)=> {
-    e.preventDefault();
-    const form ={
-      zip:this.state.zip
-    }
-  }
-
-  // handleInputChange = () => {
-  //   this.setState({
-  //     query: this.search.value
-  //   }, () => {
-  //     this.search();
-  //     // if (this.state.query.length >= 5) {
-  //     //   // this.showDropdown()
-  //     //   // if (this.state.query.length % 2 === 0) {
-
-  //     //   // }
-  //     // } else if (!this.state.query) {
-  //     //   // this.hideDropdown()
-  //     // }
-  //   })
+  // handleClick = (e) => {
+  //   e.preventeventdefault()
+  //   this.search(e.target.value)
+  //   this.setState({ value: e.target.value });
+  //   if (this.state.value) {
+  //     this.search()
+  //   }
   // }
 
   render() {
     return (
       <div>
-        <form>
+        <form >
           <input
-            placeholder="Search for..."
-            ref={input => this.search = input}
-            onChange={this.handleInputChange}
+            // placeholder="Search for..."
+            value={this.state.zip}
+            onChange={this.handleChange}
+            className='input-style'
           />
-          <button onClick={(e) => this.onSubmit(e)}>Submit</button> 
+
+          {/* <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={(e) => this.handleClick(e)}
+          >Submit
+            </button> */}
+          {this.state.brewresults && <Bnb brewresults={this.state.brewresults} barkresults={this.state.barkresults} />}
         </form>
-        <Bnb brewresults={this.state.brewresults} barkresults={this.state.barkresults} />
+
       </div>
     )
 

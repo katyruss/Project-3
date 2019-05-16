@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Button, NavDropdown } from 'react-bootstrap';
 import './App.css';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Search from './Search/Search';
 
@@ -66,11 +66,9 @@ class App extends Component {
                   </Button>
                 )
               }
-
-              {/* <Link className="nav-links" to="/brews">Brew n Bark</Link> */}
-
-              {/* <Link className="nav-links" to="/barks">Barks</Link> */}
-              <Link className="nav-title" to="#">Brews & Barks</Link>
+  
+              {/* <Link className="nav-title" to="#">Brews & Barks</Link>
+              <Link to="/api/search" component={Search}></Link> */}
             </span>
           </Navbar.Header>
         </Navbar>

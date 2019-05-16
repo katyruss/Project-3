@@ -27,11 +27,11 @@ router.post('/search', (req, res) => {
         console.log("Api called");
         console.log(lat);
         console.log(long);
-        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=restaurant&keyword=pizza&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000`)
+        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=bar&keyword=beer&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000&limit=10`)
             .then((data) => {
                 console.log("Search complete.");
-                console.log(data.data.results[0]);
-                res.json(data.data.results[0]);
+                console.log(data.data.results);
+                res.json(data.data.results);
             })
             .catch(err => res.json(err));
         // .catch(() => this.setState({ error: true }))
