@@ -5,9 +5,12 @@
   color: black;
   text-align: center;
   font-family:'Tangerine', serif;
-  font-size: 26px;
-  position:absolute;
+  position: fixed;;
   left:0;
   bottom:0;
   right:0;
+  z-index: 200;
+}
+h4{
+  font-size: 24px;
 }

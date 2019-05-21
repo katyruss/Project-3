@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './Search.css'
 import Bnb from '../Results/Bnb';
+import { login } from '../Auth/Auth';
 
 
 // const { API_KEY } = process.env
@@ -14,23 +15,37 @@ class Search extends Component {
       results: false,
       error: false,
       zip: '',
-      brewresults: null
+      brewResults: null
     }
     this.state.handleChange = this.handleChange.bind(this)
-    // this.state.handleClick = this.handleClick.bind(this)
   }
-  search = () => {
-    axios.post("/api/search", {
-      zip: this.state.zip
-    }).then(res => {
+
+  componentDidMount = () => {
+    if (localStorage.hasOwnProperty('searchZip')) {
       this.setState({
-        brewresults: res.data,
-        results: true
-      }, () => {
-        console.log(this.state.brewresults);
+        zip: localStorage.getItem('searchZip')
       });
-      // console.log(res.data.results)
-      // }
+      this.search(localStorage.getItem("searchZip"));
+    }
+  }
+
+  search = (zipcode) => {
+    console.log("performing search on:")
+    console.log(zipcode);
+    axios.post("/api/search", {
+      zip: zipcode
+    }).then(res => {
+      console.log(res.data)
+      if (res.data) {
+        localStorage.setItem('searchZip', zipcode);
+        this.setState({
+          brewResults: res.data.brews,
+          barkResults: res.data.barks,
+          results: true
+        }, () => {
+          console.log(this.state.brewResults);
+        });
+      }
     });
   }
 
@@ -40,44 +55,33 @@ class Search extends Component {
     }, () => {
 
       if (this.state.zip.length === 5) {
-        this.search()
+        this.search(this.state.zip);
       }
       else {
         this.setState({
-          brewresults: null
+          brewResults: null,
+          barkResults: null
         })
 
       }
     })
   }
 
-  // handleClick = (e) => {
-  //   e.preventeventdefault()
-  //   this.search(e.target.value)
-  //   this.setState({ value: e.target.value });
-  //   if (this.state.value) {
-  //     this.search()
-  //   }
-  // }
-
   render() {
     return (
       <div>
         <form >
           <input
-            // placeholder="Search for..."
+            placeholder="Search for..."
             value={this.state.zip}
             onChange={this.handleChange}
             className='input-style'
           />
+          <p>Please login to Save Search Results</p>
+          {this.state.brewResults &&
+            <Bnb brewResults={this.state.brewResults} barkResults={this.state.barkResults} />
+          }
 
-          {/* <button
-            className="btn btn-primary"
-            type="submit"
-            onClick={(e) => this.handleClick(e)}
-          >Submit
-            </button> */}
-          {this.state.brewresults && <Bnb brewresults={this.state.brewresults} barkresults={this.state.barkresults} />}
         </form>
 
       </div>

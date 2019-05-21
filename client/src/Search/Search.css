@@ -1,6 +1,6 @@
 .input-style{
   /* position: relative; */
-  margin-left: 10px;
+  margin-left: 20px;
   width:200px;
   height:30px;
   color:black;
@@ -12,3 +12,7 @@
   background-color: #c98520;
   margin-left: 15px;
 }
+p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding:20px;
+  }

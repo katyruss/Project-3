@@ -4,16 +4,17 @@ import Card from './Card';
 class CardContainer extends Component {
 
     render() {
-        const { brewresults, barkresults } = this.props;
+        const { brewResults, barkResults } = this.props;
         console.log("Card container hit.");
-        console.log(brewresults);
+        console.log(brewResults);
         return (
             <div>
-                {brewresults && brewresults.map(card => (
-                    <Card {...card} />
+                {brewResults && brewResults.map((card, i) => (
+                    <Card key={i} {...card} />
+
                 ))}
-                {barkresults && barkresults.map(card => (
-                    <Card {...card} />
+                {barkResults && barkResults.map((card, i) => (
+                    <Card key={i} {...card} />
                 ))}
             </div>
         )
