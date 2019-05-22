@@ -6,6 +6,7 @@ import Footer from './Footer/Footer';
 import Search from './Search/Search';
 
 
+
 class App extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
@@ -17,6 +18,7 @@ class App extends Component {
 
   logout() {
     this.props.auth.logout();
+    this.setState(localStorage.setItem('searchZip', ''))
   }
 
   componentDidMount() {
@@ -32,9 +34,10 @@ class App extends Component {
 
     return (
       <div>
-        <Navbar fluid>
+        <Navbar fluid className="bnb-nav">
           <Navbar.Header>
-            <span>
+          <img className="Logo" src="./assets/images/Logo.png" alt="Logo"/>
+            <span className="btnLoc">
               <Button
                 bsStyle="primary"
                 className="btn-margin"
@@ -66,7 +69,6 @@ class App extends Component {
                   </Button>
                 )
               }
-              {<p className="title">Brews & Barks</p>}
             </span>
           </Navbar.Header>
         </Navbar>

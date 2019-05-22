@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './Search.css'
 import Bnb from '../Results/Bnb';
-import { login } from '../Auth/Auth';
-
 
 // const { API_KEY } = process.env
 // const API_URL = 'TBD'
@@ -77,7 +75,7 @@ class Search extends Component {
             onChange={this.handleChange}
             className='input-style'
           />
-          <p>Please login to Save Search Results</p>
+          <p className="searchMessage">Please login to Save Search Results</p>
           {this.state.brewResults &&
             <Bnb brewResults={this.state.brewResults} barkResults={this.state.barkResults} />
           }

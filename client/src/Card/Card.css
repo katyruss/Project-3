@@ -11,6 +11,14 @@
     padding-top: 6%;
 
 }
-button{
+button {
     background-color: transparent;
+    border: none;
+    float: right;
+    margin-right: 25px;
 }
+
+div.card-height {
+    padding-bottom: 5%;
+}
+

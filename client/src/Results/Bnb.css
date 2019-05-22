@@ -1,15 +1,13 @@
 .card-bg {
     opacity: .75;
-    margin-right: 55px;
-   
-    margin-left: 55px;
+    margin-right: 10px;
+    margin-left: 50px;
 }
 
 .card-space {
-    margin-right: 55px;
+    margin-right: 50px;
     margin-bottom: 200px;
-
-    margin-left: 55px; 
+    margin-left: 50px; 
 }
 
 h3 {
