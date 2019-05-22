@@ -1,0 +1,23 @@
+
+.card-result {
+    margin-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.heart-icon {
+    color: red;
+    font-size: 32px;
+    padding-top: 6%;
+
+}
+button {
+    background-color: transparent;
+    border: none;
+    float: right;
+    margin-right: 25px;
+}
+
+div.card-height {
+    padding-bottom: 5%;
+}
