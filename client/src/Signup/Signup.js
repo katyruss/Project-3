@@ -28,8 +28,9 @@ class Signup extends Component {
             email: this.state.email,
             password: this.state.password
         }
-       API.newUser(user).then(res => {
-            this.props.history.push(`/signup`)
+        API.newUser(user).then(res => {
+            console.log(res)
+            //     this.props.history.push(`/signup`)
         })
     }
 
@@ -69,7 +70,7 @@ class Signup extends Component {
                     /><br></br>
 
                     <button className="btn btn-lg btn-primary submit-button" value="Submit User" type="button" onClick={(e) => this.handleSubmit(e)}>Sign up</button>
-               
+
                 </form>
             </div>
         )

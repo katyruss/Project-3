@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
 import './App.css';
-// import { BrowserRouter as Link } from 'react-router-dom';
+import Logo from './Assets/Images/Logo.png';
 import Footer from './Footer/Footer';
 import Search from './Search/Search';
-
-
 
 class App extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
+    this.setState(localStorage.setItem('searchZip', ''))
   }
 
   login() {
@@ -36,7 +35,7 @@ class App extends Component {
       <div>
         <Navbar fluid className="bnb-nav">
           <Navbar.Header>
-          <img className="Logo" src="./assets/images/Logo.png" alt="Logo"/>
+            <img className="Logo" src={Logo} alt="Logo" />
             <span className="btnLoc">
               <Button
                 bsStyle="primary"
