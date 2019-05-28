@@ -19,7 +19,7 @@
         "react-router": "^5.0.0",
         "react-router-dom": "^5.0.0"
     },
-    "proxy": "http://localhost:3001",
+    "proxy": "http://localhost:4001/graphql",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",

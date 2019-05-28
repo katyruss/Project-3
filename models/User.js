@@ -1,12 +1,21 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const UserSchema = new Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  date: { type: Date, default: Date.now }
-});
-
-const User =  module.exports = mongoose.model("User", UserSchema);
-
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    id_token: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {});
+  User.associate = function (models) {
+    User.hasMany(models.Place)
+  };
+  return User;
+};
