@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './Search.css'
 import Bnb from '../Results/Bnb';
-import { login } from '../Auth/Auth';
-
 
 // const { API_KEY } = process.env
 // const API_URL = 'TBD'

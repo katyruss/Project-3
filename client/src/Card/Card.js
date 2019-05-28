@@ -7,10 +7,10 @@ const Card = props => {
     return (
         <div className="card-height">
             <hr />
-            {/* {
-                localStorage.hasOwnProperty('isLoggedIn') ? <button><i className="fas fa-heart"></i></button> : null
-            } */}
-            <button type = "submit"><i className="fas fa-heart heart-icon"></i></button>
+            {
+                localStorage.hasOwnProperty('isLoggedIn') ? <button type = "submit"><i className="fas fa-heart heart-icon"></i></button> : null
+            }
+            
             <div className="card-result">Name: {props.name}</div>
 
             <div className="card-result">Address: {props.vicinity}</div>

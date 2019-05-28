@@ -8,11 +8,11 @@ export default class Auth {
   expiresAt;
 
   auth0 = new auth0.WebAuth({
-    domain: 'react-project3.auth0.com',
-    clientID: 'D3x4WpuDdoN-tmhsyOUGZ9uAfeb5lSOt',
-    redirectUri: 'http://localhost:3000/callback',
+    domain: AUTH_CONFIG.domain,
+    clientID: AUTH_CONFIG.clientId,
+    redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid',
   });
 
   constructor() {

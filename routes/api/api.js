@@ -26,7 +26,7 @@ router.post('/search', (req, res) => {
     function getInfo(lat, long) {
         console.log("Brew Api called");
         let results = {}
-        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=bar&keyword=beer&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000&limit=10`)
+        axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=bar&keyword=brewery&location=${lat},${long}&radius=10000&key=AIzaSyAE53DJr6YouuK0v7JAh2dIAZsTr_q0Tvc`)
             .then(function (data) {
                 results.brews = data.data.results.slice(0, 5)
                 axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=park&keyword=dog&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000&limit=10`).then(r => {
@@ -43,3 +43,5 @@ router.post('/search', (req, res) => {
 
 
 module.exports = router;
+
+// https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=bar&keyword=beer&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000&limit=10
