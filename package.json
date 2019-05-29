@@ -26,15 +26,16 @@
     "Access-Control-Allow-Origin": "*"
   },
   "dependencies": {
+    "apollo-server": "^2.5.0",
     "axios": "^0.18.0",
+    "dotenv": "^8.0.0",
     "express": "^4.16.3",
+    "graphql": "^14.3.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-    "react-simple-card": "^1.0.11",
-    "apollo-server": "^2.5.0",
-    "graphql": "^14.3.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
+    "react-simple-card": "^1.0.11",
     "sequelize": "^5.8.6",
     "sequelize-cli": "^5.4.0"
   }

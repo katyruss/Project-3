@@ -34,10 +34,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
-  Places.associate = function (models) {
-    Places.belongsTo(models.User, {
-      foreignKey: 'userId'
-    })
-  };
   return Places;
 };
