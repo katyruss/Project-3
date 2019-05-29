@@ -1,28 +1,35 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const app = express();
-var bodyParser = require("body-parser");
+const {
+  ApolloServer,
+  gql
+} = require('apollo-server-express');
+const db = require("./models")
+const typeDefs = require('./graphql/schema')
+const resolvers = require('./graphql/resolvers').resolvers
+const models = require('./models')
+const express = require('express');
 const PORT = process.env.PORT || 3001;
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({ type: "application/json" }));
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-app.use(express.static("public"));
-// Add routes, both API and view
-app.use(routes);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: {
+    models
+  }
+})
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/users");
-
-// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+const app = express();
+server.applyMiddleware({
+  app
 });
+
+
+db.sequelize.sync({
+  force: true
+}).then(() => {
+  app.listen({
+      port: 4000
+    }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  );
+})

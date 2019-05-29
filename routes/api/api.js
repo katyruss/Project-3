@@ -43,5 +43,3 @@ router.post('/search', (req, res) => {
 
 
 module.exports = router;
-
-// https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=bar&keyword=beer&key=AIzaSyAu8NcOLpw_ueSUa6w_oE8_rv76uOln-EA&location=${lat},${long}&radius=10000&limit=10

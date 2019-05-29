@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:app",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "apollo-server": "^2.5.0",
+    "apollo-server-express": "^2.5.0",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.3",
