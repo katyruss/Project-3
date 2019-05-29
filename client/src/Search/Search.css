@@ -1,0 +1,29 @@
+.input-style{
+  /* position: relative; */
+  margin-left: 20px;
+  width:290px;
+  height:30px;
+  color:rgb(58, 55, 55);
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  border: none;
+  padding-left: 10px;
+  border-radius: 45px;
+}
+
+/* .btn {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #c98520;
+  margin-left: 15px;
+} */
+
+p.searchMessage {
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  font-family: 'Oxygen', sans-serif;
+  font-size: 18px;
+  padding:20px;
+  color: #E8E742;
+  text-shadow: 1px 3px 7px black;
+  }

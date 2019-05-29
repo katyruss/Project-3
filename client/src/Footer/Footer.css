@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+
+.page-footer {
+  background-color: #c98520;
+  color: rgb(230, 223, 223);
+  text-align: center;
+  position: fixed;;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index: 200;
+  box-shadow: 2px 0 6px rgb(88, 88, 88);
+}
+h4{
+  font-size: 16px;
+  padding-top: 5px;
+  font-weight: 600;
+  font-family: 'Oxygen', sans-serif;
+}
