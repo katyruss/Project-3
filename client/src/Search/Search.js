@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import './Search.css'
+import React, { Component } from 'react';
+import axios from 'axios';
+import './Search.css';
 import Bnb from '../Results/Bnb';
 
 // const { API_KEY } = process.env

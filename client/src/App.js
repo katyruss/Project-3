@@ -17,7 +17,7 @@ class App extends Component {
 
   logout() {
     this.props.auth.logout();
-    this.setState(localStorage.setItem('searchZip', ''))
+    this.setState(localStorage.removeItem('searchZip'))
   }
 
   componentDidMount() {

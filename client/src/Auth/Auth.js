@@ -50,10 +50,10 @@ export default class Auth {
   }
 
   setSession(authResult) {
-    console.log(authResult.idTokenPayload.aud);
+    console.log(authResult.idTokenPayload.sub);
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userid', authResult.idTokenPayload.aud);
+    localStorage.setItem('userid', authResult.idTokenPayload.sub);
 
     // Set the time that the access token will expire at
     let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();

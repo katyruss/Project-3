@@ -20,7 +20,7 @@ app.use(express.static("public"));
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/brewsnbarks");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/brewsnbarks");
 
 // Start the API server
 app.listen(PORT, function () {
